@@ -81,14 +81,14 @@ Commit your `retype-action.yml` file and push to your repo.
 
 ### RETYPE_SECRET
 
-If your project requires a Retype License Key, that key can be configured by adding a [`RETYPE_SECRET`](cli.md#retype_secret) secret to your repository and the corresponding `license: \{\%\{\$\{\{ secrets.RETYPE_SECRET }}`}%} configuration to your `.github/workflows/retype-action.yml` file.
+If your project requires a Retype License Key, that key can be configured by adding a [`RETYPE_SECRET`](cli.md#retype_secret) secret to your repository and the corresponding `license: EXAMPLE_SECRET` configuration to your `.github/workflows/retype-action.yml` file.
 
 {%{
 
 ```yml
 - uses: retypeapp/action-build@latest
   with:
-    license: \$\{\{ secrets.RETYPE_SECRET }}
+    license: EXAMPLE_SECRET
 ```
 
 }%}
@@ -114,7 +114,7 @@ jobs:
 
       - uses: retypeapp/action-build@latest
         with:
-          license: \{\%\{\$\{\{ secrets.RETYPE_SECRET }}}%}
+          license: EXAMPLE_SECRET
 
       - uses: retypeapp/action-github-pages@latest
         with:
