@@ -2,6 +2,7 @@
 icon: git-compare
 tags: [guide]
 ---
+
 ![](/static/headers/guides_github-actions.png)
 
 # GitHub Actions
@@ -71,9 +72,9 @@ If the `retype` branch is not available, the GitHub Action will automatically cr
 If the default branch in your repo is `master`, change `- main` to `- master`. If the docs project was within a `docs` branch, change `- main` to `- docs`. The following snippet demonstrates setting the branch to `master`.
 
 ```yml
-  push:
-    branches:
-      - master
+push:
+  branches:
+    - master
 ```
 
 Commit your `retype-action.yml` file and push to your repo.
@@ -83,43 +84,15 @@ Commit your `retype-action.yml` file and push to your repo.
 If your project requires a Retype License Key, that key can be configured by adding a [`RETYPE_SECRET`](cli.md#retype_secret) secret to your repository and the corresponding `license: {%{${{ secrets.RETYPE_SECRET }}`}%} configuration to your `.github/workflows/retype-action.yml` file.
 
 {%{
+
 ```yml
 - uses: retypeapp/action-build@latest
   with:
     license: ${{ secrets.RETYPE_SECRET }}
 ```
+
 }%}
 
 A standard `.github/workflows/retype-action.yml` file with a Retype license key would look like the following:
 
-```yml .github/workflows/retype-action.yml
-name: Publish Retype powered website to GitHub Pages
-on:
-  workflow_dispatch:
-  push:
-    branches:
-      - main
-
-jobs:
-  publish:
-    name: Publish to retype branch
-
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v2
-
-      - uses: retypeapp/action-build@latest
-        with:
-          license: {%{${{ secrets.RETYPE_SECRET }}}%}
-
-      - uses: retypeapp/action-github-pages@latest
-        with:
-          update-branch: true
-```
-
----
-
-## Step 2: Configure GitHub Pages
-
-Once [Step 1](#step-1-add-retype-actionyml-workflow) is complete, configure your [GitHub Pages](/hosting/github-pages.md#step-2-configure-github-pages) setup.
+...
