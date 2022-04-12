@@ -83,15 +83,11 @@ Commit your `retype-action.yml` file and push to your repo.
 
 If your project requires a Retype License Key, that key can be configured by adding a [`RETYPE_SECRET`](cli.md#retype_secret) secret to your repository and the corresponding `license: EXAMPLE_SECRET` configuration to your `.github/workflows/retype-action.yml` file.
 
-{%{
-
 ```yml
 - uses: retypeapp/action-build@latest
   with:
     license: EXAMPLE_SECRET
 ```
-
-}%}
 
 A standard `.github/workflows/retype-action.yml` file with a Retype license key would look like the following:
 
