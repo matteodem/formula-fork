@@ -1,6 +1,6 @@
 input: ./
 output: .retype
-url: # Add your website address here
+url: https://matteodem.github.io/formula-fork/
 branding:
   title: Formula SysAFK
   label: Blog
